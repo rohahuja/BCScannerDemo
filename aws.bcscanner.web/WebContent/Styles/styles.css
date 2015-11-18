@@ -1,0 +1,218 @@
+html, body {
+	height: 100%;
+}
+
+html {
+	display: table;
+	margin: auto;
+}
+
+body {
+	display: table-cell;
+	vertical-align: middle;
+	font: 14px Arial, "Helvetica Neue", Roboto, Arial, "Droid Sans",
+		sans-serif;
+	color: #444;
+	margin: auto;
+}
+
+a {
+	color: #444;
+	text-decoration: none;
+	xfont-weight: bold;
+}
+
+a#barcode-info {
+	color: #F98731;
+}
+
+div.header {
+	width: 300px;
+	height: 122px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+div.header h2 {
+	font-size: 20px;
+	line-height: 38px;
+	font-weight: normal;
+	width: 290px;
+	margin: auto;
+	padding-left: 60px;
+	font-weight: bold;
+	background: url("../Images/aws-logo.jpg") no-repeat;
+}
+
+div.header div.powered-by {
+	margin-top: 15px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+div.header div.powered-by span {
+	display: inline-block;
+	padding-left: 35px;
+	line-height: 35px;
+	color: #e47911;
+	height: 35px;
+	margin-right: 15px;
+}
+
+div.header div.powered-by div {
+	text-align: left;
+	color: #444;
+	font-style: italic;
+	font-size: 10px;
+}
+
+div.header span.ec2 {
+	background: url("../Images/ec2.jpg") no-repeat;
+}
+
+div.header span.vpc {
+	background: url("../Images/vpc.jpg") no-repeat;
+}
+
+div.header span.s3 {
+	background: url("../Images/s3.jpg") no-repeat;
+}
+
+div.header span.iam {
+	background: url("../Images/iam.jpg") no-repeat;
+}
+
+div.header span.cognito {
+	background: url("../Images/cognito.jpg") no-repeat;
+}
+
+div.header span.lambda {
+	background: url("../Images/lambda.jpg") no-repeat;
+}
+
+div.sub-header {
+	margin-top: 20px;
+	padding: 0px 10px;
+	border-top: dashed 1px #444;
+}
+
+div.scan-image {
+	width: 75px;
+	height: 75px;
+	background-color: transparent;
+	background: url("../Images/bc-scanner.png");
+	background-repeat: no-repeat;
+	overflow: hidden;
+	margin: auto;
+}
+
+div.scan-image input {
+	display: block !important;
+	width: 75px !important;
+	height: 75px !important;
+	opacity: 0 !important;
+	overflow: hidden !important;
+}
+
+div.upload {
+	margin: auto;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	
+}
+
+div#main-product {
+	padding: 20px 0px;
+	padding-right: 20px;
+	border-top: dashed 1px #444;
+}
+
+div#main-product span.images {
+	display: inline-block;
+	height: 160px;
+	width: 160px;
+	text-align: center;
+	float: left;
+	margin-right: 10px;
+}
+
+div#main-product div.shop {
+	width: 90px;
+	height: 30px;
+	border-radius: 5px;
+	float: left;
+	line-height: 30px;
+	border: 1px solid orange;
+	background: -webkit-linear-gradient(top, #e39907 0, #e47911);
+	background-color: #e47911;
+	margin-top: 10px;
+	color: #fff;
+	text-align: center;
+}
+
+div#similar-products {
+	padding: 20px;
+}
+
+div#similar-products span.shake {
+	display: inline-block;
+	line-height: 40px;
+	padding-left: 40px;
+	background: url("../Images/shake-phone.png") no-repeat;
+}
+
+div.clear {
+	clear: both;
+}
+
+div.loading {
+	height: 110px;
+	xwidth: 100%;
+	vertical-align: middle;
+	margin: auto;
+	xbackground-color: transparent;
+	background: transparent url("../Images/loading.GIF") no-repeat center;
+}
+
+#interactive {
+	width: 300px;
+	height: 300px;
+	margin: auto;
+	display: none;
+}
+
+#interactive.viewport canvas, video {
+	xfloat: left;
+	width: 300px;
+	height: 300px;
+}
+
+video {
+	object-fit: contain;
+}
+
+#err, #info {
+	width: 300px;
+	border: 2px solid red;
+	text-align: center;
+	padding: 30px;
+	margin: auto;
+	xmargin-top: 50px;
+	display: none;
+}
+
+#info {
+	border-color: green;
+}
+
+.dialog {
+	text-align: center;
+	line-height: 40px;
+}
+
+#barcode-info-dialog {
+	background: transparent url("../Images/ean_upc.png") no-repeat center;
+	width: 160px;
+	height: 230px;
+}

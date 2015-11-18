@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>AWS Barcode Scanner</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="https://sdk.amazonaws.com/js/aws-sdk-2.1.48.min.js"></script>
+<script type="text/javascript" src="./Scripts/quagga.min.js"></script>
+<script type="text/javascript" src="./Scripts/quagga-init.js"></script>
+<script type="text/javascript" src="./Scripts/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="./Scripts/shake.js"></script>
+<script type="text/javascript" src="./Scripts/main.js"></script>
+
+<script type="text/javascript" src="./Scripts/invoke.js"></script> 
+<scripts type="text/javascript" src="./Scripts/invoke.dev.js"></script>
+
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href="./Styles/styles.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="header">
+		<h2>ShopMart Barcode Scanner</h2>
+		<div class="powered-by">
+			<div>powered by:</div>
+			<span class="s3">S3</span> <span class="lambda">Lambda</span> <span
+				class="cognito">Cognito</span> <span class="iam">IAM</span>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div class="sub-header">
+		<p>Use the button below to scan a barcode and see matching
+			products from ShopFree.com. <a id="barcode-info" href="#">Which barcodes types are compatible?</a></p>
+	</div>
+
+<!-- <input type="button" onclick="$(window).trigger('shake'); return false;" value="Next" />  -->
+
+	<form id="ajax-request-form">
+		<div class="upload">
+			<div id="interactive" class="viewport"></div>
+			<div class="scan-image">
+				<input type="button" id="file-chooser" />
+			</div>
+		</div>
+		<div id="main-product"></div>
+		<div id="similar-products"></div>
+		<!-- <div id="info"></div>
+		<div id="err"></div> -->
+	</form>
+
+	<div class="dialog" id="detected-dialog">Barcode detected.</div>
+
+	<div class="dialog" id="barcode-info-dialog"></div>
+
+	<script type="text/x-jQuery-tmpl" id="tmpl-main-prd">
+            <a target="_blank" href="${detailPageUrl}">
+                <span class="images">
+                    <img src="${imageUrl}" height="${imageH}" width="${imageW}" />
+                </span>
+                <span class="info">
+                    <h2 class="price">${currency} ${price}</h2>    
+                    <span class="title">${title}</span>
+                </span>
+                <!-- <div class="shop">Shop</div> -->
+            </a>
+            <div class="clear"></div>
+        </script>
+
+	<script type="text/x-jQuery-tmpl" id="tmpl-similar-prd">
+            <span class="col">
+                <a target="_blank" href="${detailPageUrl}">
+                    <img src="${imageUrl}" height="${imageH}" width="${imageW}" />
+    <!--                <span>${title}</span>-->
+                </a>
+            </span>
+        </script>
+</body>
+</html>

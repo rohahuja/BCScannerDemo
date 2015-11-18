@@ -1,0 +1,6 @@
+#Lambda Function Project Metadata
+#Sat Oct 31 20:33:22 UTC 2015
+lastDeploymentFunctionName=MyFunctionMultiple
+lastDeploymentBucketName=bcscanner-lambda-source
+lastDeploymentEndpoint=https\://lambda.us-west-2.amazonaws.com/
+lastInvokeInput="{ 'asin'\: 'B004RHUTDA' }"

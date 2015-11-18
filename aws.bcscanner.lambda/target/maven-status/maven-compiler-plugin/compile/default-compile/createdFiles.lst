@@ -1,0 +1,4 @@
+aws\bcscanner\lambda\Constants.class
+aws\bcscanner\lambda\SignedRequestsHelper.class
+aws\bcscanner\lambda\RetrieveSimilarProducts.class
+aws\bcscanner\lambda\RetrieveProduct.class
