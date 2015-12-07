@@ -7,8 +7,8 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 /**
- * @author Administrator
- *
+ * Logger class that will enable logging extensibility. 
+ * Also eliminates context issues when debugging locally.
  */
 public class Logger {
 	private static LambdaLogger logger;

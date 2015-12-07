@@ -2,9 +2,6 @@
 	<wb-module deploy-name="aws.bcscanner.web">
 		<wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/aws.bcscanner.lambda.product/aws.bcscanner.lambda.product">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="aws.bcscanner.lambda.similar.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/aws.bcscanner.lambda.similar/aws.bcscanner.lambda.similar">
             <dependency-type>uses</dependency-type>
         </dependent-module>

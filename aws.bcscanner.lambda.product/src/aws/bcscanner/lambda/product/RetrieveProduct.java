@@ -1,12 +1,6 @@
 package aws.bcscanner.lambda.product;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.UUID;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -20,16 +14,8 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import com.amazonaws.AmazonClientException;
-import com.amazonaws.SDKGlobalConfiguration;
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.s3.*;
-import com.amazonaws.services.s3.model.*;
 
 import aws.bcscanner.lambda.common.*;
 

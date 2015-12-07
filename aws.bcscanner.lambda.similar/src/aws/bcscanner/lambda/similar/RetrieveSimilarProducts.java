@@ -34,19 +34,23 @@ public class RetrieveSimilarProducts implements RequestHandler<String, String> {
     	input = input.replace("'", "\"");
     	logger.write("Normalised JSON: " + input);
     	
+    	// Parse input
     	JsonReader reader = Json.createReader(new StringReader(input));
         JsonObject paramsObj = reader.readObject();
         reader.close();
         
+        // Extract input
         String asin = paramsObj.getString("asin");
         logger.write("ASIN: " + asin);
         
+        // Extract credentials
         JsonObject apiCredentials = Utility.getProductAdvertisingAPICredentials(context);
         String assocTag = apiCredentials.getString("awsAssocTag");
         String accessKey = apiCredentials.getString("awsAccessKeyId");
         String secretKey = apiCredentials.getString("awsSecretKey");
         logger.write("Credentials retrieved from S3: " + assocTag);
         
+        // Create request
 		SignedRequestsHelper helper;
 		try {
 			helper = SignedRequestsHelper.getInstance(Constants.ENDPOINT, 
@@ -61,21 +65,30 @@ public class RetrieveSimilarProducts implements RequestHandler<String, String> {
         }
         
         String requestUrl = null;
-        JsonObject myObj = null;
         
-        /* Here is an example with string form, where the requests parameters have already been concatenated
-         * into a query string. */
+        // Create REST parameters
         String queryString = "Service=AWSECommerceService&Operation=SimilarityLookup&ResponseGroup=Images,ItemAttributes";
         queryString += "&ItemId=" + asin;
         requestUrl = helper.sign(queryString);
 
-        NodeList items = fetchItems(requestUrl);
+        // Fetch response
+ 		String responseJson = fetchResponse(requestUrl, asin);
+ 		return responseJson;
+    }
+    
+    /*
+	 * Utility function to fetch the response from the service.
+	 */
+	private String fetchResponse(String requestUrl, String asin) {
+		JsonObject myObj = null;
+		
+		NodeList items = fetchItems(requestUrl);
         if (items != null)
         {
             XPathFactory factory = XPathFactory.newInstance();
             XPath xpath = factory.newXPath();
             
-            // Limit number of items
+            // Limit number of items retrieved
             int itemsRetrieved = items.getLength();
             int itemLimit = itemsRetrieved > Constants.NUM_SIMILAR_ITEM_LIMIT ? Constants.NUM_SIMILAR_ITEM_LIMIT : itemsRetrieved;
             
@@ -128,14 +141,17 @@ public class RetrieveSimilarProducts implements RequestHandler<String, String> {
         {
             myObj = Json.createObjectBuilder()
                 .add("success", "false")
-                .add("error", "No similar found for the ASIN: " + asin + ".")
+                .add("error", "No similar products found for the ASIN: " + asin + ".")
                 .build();
             
             return myObj.toString();
         }
-   }
+	}
    
-   private static NodeList fetchItems(String requestUrl) {
+	/*
+	 * Utility function to extract the items from the XML response.
+	 */
+	private static NodeList fetchItems(String requestUrl) {
        try {
            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
            DocumentBuilder db = dbf.newDocumentBuilder();
@@ -143,7 +159,7 @@ public class RetrieveSimilarProducts implements RequestHandler<String, String> {
            
            if ((doc != null) &&
                    doc.getElementsByTagName("Item").getLength() > 0) {
-               // Return just all items
+               // Return all items
                return doc.getElementsByTagName("Item");
            }
        } catch (Exception e) {
