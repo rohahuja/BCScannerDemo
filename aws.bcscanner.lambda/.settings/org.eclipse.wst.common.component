@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="aws.bcscanner.lambda">
+    <wb-module deploy-name="aws.bcscanner.lambda.product">
         <wb-resource deploy-path="/" source-path="/src"/>
-        <wb-resource deploy-path="/" source-path="/tst"/>
+        <dependent-module archiveName="aws.bcscanner.lambda.common.jar" deploy-path="/" handle="module:/resource/aws.bcscanner.lambda.common/aws.bcscanner.lambda.common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

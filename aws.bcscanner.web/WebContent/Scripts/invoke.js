@@ -18,9 +18,9 @@ $(document).ready(function () {
 
 function readBarcode(e) {
 	// TODO - required for testing purposes
-	retrieveProductDetailsRequest("073852400908", "upc_a"); return;
+	//retrieveProductDetailsRequest("073852400908", "upc_a"); return;
 	//retrieveProductDetailsRequest("036000216066", "upc_a"); return;
-	//retrieveProductDetailsRequest("740985227909", "upc_a"); return;
+	retrieveProductDetailsRequest("740985227909", "upc_a"); return;
     //retrieveSimilarProductsRequest("B000BBYATK"); return;
 	
 	initCamera();

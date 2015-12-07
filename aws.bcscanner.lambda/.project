@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>aws.bcscanner.lambda</name>
+	<name>aws.bcscanner.lambda.product</name>
 	<comment></comment>
 	<projects>
-		<project>aws.bcscanner.web</project>
+		<project>aws.bcscanner.lambda.common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

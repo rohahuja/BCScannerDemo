@@ -3,7 +3,9 @@
 	<name>aws.bcscanner.web</name>
 	<comment></comment>
 	<projects>
-		<project>aws.bcscanner.lambda</project>
+		<project>aws.bcscanner.lambda.product</project>
+		<project>aws.bcscanner.lambda.similar</project>
+		<project>aws.bcscanner.lambda.common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

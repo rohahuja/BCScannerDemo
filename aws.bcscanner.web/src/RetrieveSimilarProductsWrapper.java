@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import com.amazonaws.services.lambda.runtime.RequestHandler;
-import aws.bcscanner.lambda.*;
+import aws.bcscanner.lambda.similar.*;
 
 /**
  * Servlet implementation class RetrieveProductServlet
